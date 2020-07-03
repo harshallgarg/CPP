@@ -8,10 +8,11 @@ public:
         vector<vector<int>> result;
         if(intervals.empty())
             return result;
-        sort(intervals.begin(),intervals.end(),[](vector<int> p1,vector<int> p2){return p1[0]<p2[0];});
+        
+        sort(intervals.begin(),intervals.end());
 
-        result.push_back(intervals.front());
-        for(int i=0;i<intervals.size();i++)
+        result.push_back(intervals[0]);
+        for(int i=1;i<intervals.size();i++)
         {
             if(result.back()[1]<intervals[i][0])
                 result.push_back(intervals[i]);
