@@ -5,16 +5,16 @@ private:
         struct TrieNode *child[26];
         bool isEnd;
     };
-    TrieNode* node;
+    TrieNode* root;
 public:
     /** Initialize your data structure here. */
     Trie() {
-        node=new TrieNode();
+        root=new TrieNode();
     }
     
     /** Inserts a word into the trie. */
     void insert(string word) {
-        TrieNode* cur=node;
+        TrieNode* cur=root;
         for(char c:word)
         {
             if(cur->child[c-'a']==NULL)
@@ -26,7 +26,7 @@ public:
     
     /** Returns if the word is in the trie. */
     bool search(string word) {
-        TrieNode* cur=node;
+        TrieNode* cur=root;
         for(char c:word)
         {
             if(cur->child[c-'a']==NULL)
@@ -40,7 +40,7 @@ public:
     
     /** Returns if there is any word in the trie that starts with the given prefix. */
     bool startsWith(string prefix) {
-        TrieNode* cur=node;
+        TrieNode* cur=root;
         for(char c:prefix)
         {
             if(cur->child[c-'a']==NULL)
